@@ -4,28 +4,29 @@ import './App.css'
 class App extends React.Component {
   constructor() {
     super()
-
     this.state = {
-      goOut: true
+      count: 0
     }
-    this.toggleGoOut = this.toggleGoOut.bind(this)
+    this.add = this.add.bind(this)
+    this.subtract = this.subtract.bind(this)
   }
 
-  toggleGoOut() {
-    this.setState(prevState => {
-      return {
-        goOut: !prevState.goOut
-      }
-    })
+  add() {
+    this.setState(preCount => ({ count: preCount.count + 1 }))
+  }
+
+  subtract() {
+    this.setState(preCount => ({ count: preCount.count - 1 }))
   }
 
   render() {
     return (
-      <div className="state">
-        <h1 className="state-title">Should I go out tonight?</h1>
-        <div className="state-value" onClick={this.toggleGoOut}>
-          <h1>{this.state.goOut ? "Yes" : "No"}</h1>
+      <div className="counter" >
+        <button className="counter--minus" onClick={this.subtract}>–</button>
+        <div className="counter--count">
+          <h1>{this.state.count}</h1>
         </div>
+        <button className="counter--plus" onClick={this.add}>+</button>
       </div>
     )
   }

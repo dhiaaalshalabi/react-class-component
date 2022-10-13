@@ -14,17 +14,32 @@ body {
   align-items: center;
 }
 
-.state {
+.counter {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
 }
 
-.state-title {
-  text-align: center;
+.counter > button {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background-color: #737373;
+  color: #d9d9d9;
+  font-size: 1.5rem;
 }
 
-.state-value {
+.counter > button:hover {
+  background-color: #404040;
+  color: #d9d9d9;
+}
+
+.counter > button:focus {
+  outline: none;
+}
+
+.counter--count {
   background-color: white;
   height: 100px;
   width: 100px;
@@ -33,5 +48,13 @@ body {
   justify-content: center;
   align-items: center;
   color: #262626;
-  cursor: pointer;
+}
+
+.counter--plus {
+  margin-left: -20px;
+}
+
+.counter--minus {
+  margin-right: -20px;
+  z-index: 1;
 }
