@@ -1,33 +1,44 @@
-import React from 'react'
+import React from "react"
 import './App.css'
 
 class App extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      count: 0
-    }
-    this.add = this.add.bind(this)
-    this.subtract = this.subtract.bind(this)
-  }
 
-  add() {
-    this.setState(preCount => ({ count: preCount.count + 1 }))
-  }
+  state = ({
+    firstName: "John",
+    lastName: "Doe",
+    phone: "+1 (719) 555-1212",
+    email: "itsmyrealname@example.com",
+    isFavorite: false
+  })
 
-  subtract() {
-    this.setState(preCount => ({ count: preCount.count - 1 }))
+  toggleFavorite = () => {
+    this.setState(prevContact => ({
+      ...prevContact,
+      isFavorite: !prevContact.isFavorite
+    }))
   }
 
   render() {
+    let starIcon = this.state.isFavorite ? "star-filled.png" : "star-empty.png"
     return (
-      <div className="counter" >
-        <button className="counter--minus" onClick={this.subtract}>–</button>
-        <div className="counter--count">
-          <h1>{this.state.count}</h1>
-        </div>
-        <button className="counter--plus" onClick={this.add}>+</button>
-      </div>
+      <main>
+        <article className="card">
+          <img src={require('./images/user.png')} alt="" className="card-image" />
+          <div className="card-info">
+            <img
+              src={require(`./images/${starIcon}`)}
+              className="card-favorite"
+              onClick={this.toggleFavorite}
+              alt=""
+            />
+            <h2 className="card-name">
+              {this.state.firstName} {this.state.lastName}
+            </h2>
+            <p className="card-contact">{this.state.phone}</p>
+            <p className="card-contact">{this.state.email}</p>
+          </div>
+        </article>
+      </main>
     )
   }
 }
