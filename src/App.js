@@ -1,43 +1,36 @@
 import React from "react"
-import './App.css'
+import Navbar from "./components/Navbar"
+import { Routes, Route } from "react-router-dom"
+import GoOut from "./components/GoOut"
+import Users from "./components/Users"
+import Counter from "./components/Counter"
+import Login from "./components/Login"
 
 class App extends React.Component {
 
   state = ({
-    firstName: "John",
-    lastName: "Doe",
-    phone: "+1 (719) 555-1212",
-    email: "itsmyrealname@example.com",
-    isFavorite: false
+    darkMoe: true,
   })
 
-  toggleFavorite = () => {
-    this.setState(prevContact => ({
-      ...prevContact,
-      isFavorite: !prevContact.isFavorite
-    }))
+  toggleDarkMode = () => {
+    this.setState({
+      darkMode: !this.state.darkMode
+    })
   }
 
   render() {
-    let starIcon = this.state.isFavorite ? "star-filled.png" : "star-empty.png"
     return (
       <main>
-        <article className="card">
-          <img src={require('./images/user.png')} alt="" className="card-image" />
-          <div className="card-info">
-            <img
-              src={require(`./images/${starIcon}`)}
-              className="card-favorite"
-              onClick={this.toggleFavorite}
-              alt=""
-            />
-            <h2 className="card-name">
-              {this.state.firstName} {this.state.lastName}
-            </h2>
-            <p className="card-contact">{this.state.phone}</p>
-            <p className="card-contact">{this.state.email}</p>
-          </div>
-        </article>
+        <Navbar
+          darkMode={this.state.darkMode}
+          toggleDarkMode={this.toggleDarkMode}
+        />
+        <Routes >
+          <Route path="/" element={<GoOut />} />
+          <Route path="users" element={<Users />} />
+          <Route path="counter" element={<Counter />} />
+          <Route path="login" element={<Login />} />
+        </Routes>
       </main>
     )
   }

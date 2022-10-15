@@ -1,0 +1,50 @@
+.login-page {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background-color: #d9d9d9;
+  color: #262626;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input,
+textarea {
+  margin-bottom: 10px;
+  font-family: "Inter", sans-serif;
+}
+
+fieldset{
+    border: solid 2px #262626;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  border-radius: 3px;
+  border: none;
+  height: 30px;
+  margin-bottom: 10px;
+  text-indent: 5px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin-right: 7px;
+}
+
+textarea {
+  width: 100%;
+  border-radius: 3px;
+  border: none;
+  height: 70px;
+  margin-bottom: 10px;
+  text-indent: 5px;
+}
+
+label.favColor {
+  display: block;
+}

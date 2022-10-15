@@ -1,0 +1,34 @@
+.go-out {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  color: #d9d9d9;
+  padding: 20px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.state-title {
+  color: #262626;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.state-value {
+  background-color: #262626;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  cursor: pointer;
+}
